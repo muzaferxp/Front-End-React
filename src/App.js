@@ -1,23 +1,31 @@
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header";
+// import VerticalLinearStepper from "./components/stepper"
+//import OutlinedButtons from "./components/buttons"
 
 function App() {
+  const [data, setdata] = useState("");
+
+  useEffect(() => {
+    fetch('/data').then(res => res.json()).then(data => {
+      setdata(data.data);
+    });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Header  name="Adam" />    
+        <h3>Data from flask</h3>
+       
+          <hr />  
+          {data.split(",").map((item,index)=>{
+            return <li className='card' key={index}>{item}</li>
+        })}
+
+
+      
     </div>
   );
 }
