@@ -1,7 +1,7 @@
 import time
 from flask import *
 
-app = Flask(__"name"__)
+app = Flask(__name__)
 
 @app.route('/data', methods=["GET", "POST"])
 def get_current_time():
@@ -14,8 +14,8 @@ data = {
     
     "columns": [
       {
-        "label": '"name"',
-        "field": '"name"',
+        "label": "name",
+        "field": "name",
         "width": 150,
         "attributes": {
           'aria-controls': 'DataTable',
@@ -23,30 +23,30 @@ data = {
         },
       },
       {
-        "label": '"position"',
-        "field": '"position"',
+        "label": "position",
+        "field": "position",
         "width": 270,
       },
       {
-        "label": '"office"',
-        "field": '"office"',
+        "label": "office",
+        "field": "office",
         "width": 200,
       },
       {
-        "label": '"age"',
-        "field": '"age"',
+        "label": "age",
+        "field": "age",
         "sort": 'asc',
         "width": 100,
       },
       {
         "label": 'Start "date"',
-        "field": '"date"',
+        "field": "date",
         "sort": 'disabled',
         "width": 150,
       },
       {
-        "label": '"salary"',
-        "field": '"salary"',
+        "label": "salary",
+        "field": "salary",
         "sort": 'disabled',
         "width": 100,
       },
@@ -519,9 +519,18 @@ def test():
     return {"data" : d}
 
 
-@app.route("/datat", methods=["GET", "POST"])
-def datat():
+@app.route("/datatable1", methods=["GET", "POST"])
+def datatable1():
     return {"data" : data}
 
-if __"name"__=="__main__":
+
+profiles = {"default":{"profiles":[{"id":1234,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","picture":"https://randomuser.me/api/portraits/men/68.jpg"},{"id":1256,"name":"Ervin Howell","username":"Antonette","email":"Shanna@melissa.tv","picture":"https://randomuser.me/api/portraits/men/30.jpg"},{"id":1267,"name":"Clementine Bauch","username":"Samantha","email":"Nathan@yesenia.net","picture":"https://randomuser.me/api/portraits/men/89.jpg"},{"id":1278,"name":"Chelsey Dietrich","username":"Kamren","email":"Lucio_Hettinger@annie.ca","picture":"https://randomuser.me/api/portraits/men/61.jpg"},{"id":1289,"name":"Mrs. Dennis Schulist","username":"Leopoldo_Corkery","email":"Karley_Dach@jasper.info","picture":"https://randomuser.me/api/portraits/women/81.jpg"},{"id":1378,"name":"Kurtis Weissnat","username":"Elwyn.Skiles","email":"Telly.Hoeger@billy.biz","picture":"https://randomuser.me/api/portraits/women/22.jpg"},{"id":1478,"name":"Nicholas Runolfsdottir V","username":"Maxime_Nienow","email":"Sherwood@rosamond.me","picture":"https://randomuser.me/api/portraits/women/70.jpg"},{"id":1578,"name":"Glenna Reichert","username":"Delphine","email":"Chaim_McDermott@dana.io","picture":"https://randomuser.me/api/portraits/women/9.jpg"},{"id":1678,"name":"Clementina DuBuque","username":"Moriah.Stanton","email":"Rey.Padberg@karina.biz","picture":"https://randomuser.me/api/portraits/women/60.jpg"},{"id":1778,"name":"Lebron Jordan","username":"NBA","email":"nba@april.biz","picture":"https://randomuser.me/api/portraits/men/76.jpg"}]}}
+import time
+@app.route("/profilesd", methods=["GET", "POST"])
+def profilesd():
+    time.sleep(1)
+    return profiles
+
+
+if __name__=="__main__":
     app.run(host="localhost")

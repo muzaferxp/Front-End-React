@@ -25,7 +25,7 @@ const Profiles = () => {
         setIsLoading(true);
         const fetchData = async () => {
             try {
-                const { data } = await axios.get('https://json-placeholder-api.now.sh/api/profiles')
+                const { data } = await axios.get('/profilesd')
                 setProfiles(data.default)
                 setIsLoading(false)
                 

@@ -8,8 +8,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     margin: 40px 0px;
-    
-
+    cursor:pointer;
+  
 `
 
 const TextWrapper = styled.div`
@@ -68,7 +68,7 @@ const Profile = ({loading, data}) => {
   }
   if (data) {
     return (
-        <Container>
+        <Container  onClick={()=>alert(1)}>
             <ImageContainer>
                 <Image src={data.picture} />
             </ImageContainer>

@@ -4,6 +4,9 @@ import React, {  useState, useEffect, Component } from 'react';
 import axios from "axios"
 import FormPage from "./components/login"
 import Searchuser from "./components/search"
+import dtable from "./components/datatable1"
+
+
 import MainPage from "./components/main"
 import DatatablePage from "./components/table"
 import ChartsPage from  "./components/radar"
@@ -159,7 +162,7 @@ function   App() {
                   <Route path='/data' component={DatatablePage}></Route>
                   <Route path='/chart' component={ChartsPage}></Route>
                   <Route path='/modal'  component={logingoogle}></Route>
-                  <Route path='/search'  component={Searchuser}></Route>
+                  <Route path='/search'  component={dtable}></Route>
                   <Route path='/users' >    
                         <div class='card bg-white p-2  my-4 rounded shadow'><Products /></div>
 
