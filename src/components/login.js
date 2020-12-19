@@ -12,7 +12,7 @@ return (
             <p className="">Write to us</p>
             </MDBCardHeader>
             <MDBCardBody>
-                <form>
+                <form action='/data' method='post'>
                     
                     
                     <input type="email" id="defaultFormLoginEmailEx" placeholder='Email' className="form-control" />
