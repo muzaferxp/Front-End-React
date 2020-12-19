@@ -34,23 +34,7 @@
   padding: 5px;
   margin : 10px;
 }
-.card{
-  background-color: #282c34;
-  font-size: calc(10px + 2vmin);
-  color: black;
-  margin:10px 10%;
-  box-shadow: 0.5px 0.3px 4px rgba(0,0,0,0.1); 
-  cursor:pointer;
-}
 
-.card:hover{
-  background-color: #282c34;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  margin:10px 10%;
-  box-shadow: 0.5px 1px 4px rgba(0,0,0,0.5); 
-  cursor:pointer;
-}
 
 
 
