@@ -1,7 +1,9 @@
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody,MDBListGroup, MDBListGroupItem, MDBIcon, MDBCardHeader } from 'mdbreact';
 import { BrowserRouter as Router, Switch , Link,   Route} from "react-router-dom"
 import React, {  useState, useEffect, Component } from 'react';
+import axios from "axios"
 import FormPage from "./components/login"
+import Searchuser from "./components/search"
 import MainPage from "./components/main"
 import DatatablePage from "./components/table"
 import ChartsPage from  "./components/radar"
@@ -9,9 +11,23 @@ import ModalPage from  "./components/modal"
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 import Speech from 'react-speech';
 import Form1 from "./components/append1"
-
+import logingoogle from "./components/loginwithgoogle"
+import Products from './components/Profiles/Profiles';
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
 function   App() {
-  const $ = window.$;
+  
+
+      axios
+    .post("/data", {})
+    .then(response => {
+        // manipulate the response here
+       console.log(response)
+    })
+    .catch(function(error) {
+        // manipulate the error response here
+    });
+
 
 
     const [data, setdata] = useState("");
@@ -47,7 +63,7 @@ function   App() {
            
             <MDBListGroupItem>
               <Link to="/Home">
-               Home1
+               Home
               </Link>
             </MDBListGroupItem>
             <MDBListGroupItem> 
@@ -68,6 +84,24 @@ function   App() {
             <MDBListGroupItem>
                 <Link to="/modal">
                     modal
+                </Link>
+              </MDBListGroupItem>
+
+              <MDBListGroupItem>
+                <Link to="/users">
+                    users
+                </Link>
+              </MDBListGroupItem>
+
+              <MDBListGroupItem>
+                <Link to="/events">
+                    events
+                </Link>
+              </MDBListGroupItem>
+
+              <MDBListGroupItem>
+                <Link to="/search">
+                    search
                 </Link>
               </MDBListGroupItem>
          
@@ -111,23 +145,42 @@ function   App() {
                  
 
                   <textarea class="my-2 form-control" value={transcript}></textarea>
-            
-                  
+                 
+              
               <ul classNaame='mylist'>
 
               </ul>
                   {data.split(",").map((item,index)=>{
-            return <div className='card'><p>{item}</p><Speech text={item}/ ></div>
+            return <div className='card px-4 my-2 '><p><Speech text={item}/ >{item}</p></div>
         })}
 
-
-
-
+       
                   </Route>
                   <Route path='/data' component={DatatablePage}></Route>
                   <Route path='/chart' component={ChartsPage}></Route>
-                  <Route path='/modal' component={ModalPage}></Route>
+                  <Route path='/modal'  component={logingoogle}></Route>
+                  <Route path='/search'  component={Searchuser}></Route>
+                  <Route path='/users' >    
+                        <div class='card bg-white p-2  my-4 rounded shadow'><Products /></div>
 
+                  </Route>
+                  <Route path='/events' >
+
+                      <div class='card bg-white p-2  my-4 rounded shadow'>
+
+                            
+                      <FullCalendar
+                      plugins={[ dayGridPlugin ]}
+                      initialView="dayGridMonth" 
+                      weekends={false}
+                      events={[
+                        { title: 'event 1', date: '2020-12-01' },
+                        { title: 'event 2', date: '2020-12-02' }
+                      ]}
+                      />
+                      </div>
+
+                  </Route>
                   
                   
                 </Switch>
